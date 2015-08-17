@@ -1,5 +1,5 @@
 <?php
-include "_conn.php";
+include ".../com/conn.php";
 
 
 if(isset($_GET['submit']))
@@ -8,8 +8,8 @@ if(isset($_GET['submit']))
     $pass = $_GET['pass'];
 
 
-    $result = mysqli_query($db,"SELECT id FROM  admins WHERE  username='$user' AND password='$pass'");  
-    $row = mysqli_fetch_array($result);
+    $res = mysqli_query($db,"SELECT id FROM  admins WHERE  username='$user' AND password='$pass'");  
+    $row = mysqli_fetch_array($res);
 
     if($row)
     {
