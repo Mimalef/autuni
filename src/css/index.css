@@ -1,0 +1,37 @@
+body {
+    margin-bottom: 20px;
+    margin-right: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-top: 10px;
+    width: 1000px;
+    padding: 0;
+}
+#header img {
+    border-radius: 8px;
+    width: 1000px;
+}
+#nav, #footer {
+    background-color: #DDD;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+#footer {
+    #padding: 20px;
+    padding: 20px;
+}
+.button {
+    background-color: #3F015A;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 200px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    width: 200px;
+    margin: 65px;
+    color: #DDD;
+}
+.button:hover {
+    background-color: #444;
+}
