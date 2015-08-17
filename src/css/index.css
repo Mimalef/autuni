@@ -1,0 +1,38 @@
+body {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0;
+}
+#header img {
+    border-radius: 8px;
+    width: 1000px;
+}
+#nav, #footer {
+    background-color: #DDD;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+#footer {
+    #padding: 20px;
+    padding: 20px;
+}
+.button {
+    display: inline-block;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #3F015A;
+    line-height: 200px;
+    text-align: center;
+    color: #DDD;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 65px;
+}
+.button:hover {
+    background-color: #444;
+}
