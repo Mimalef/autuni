@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2015 at 08:52 PM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Aug 18, 2015 at 01:28 AM
+-- Server version: 5.5.35-1ubuntu1
+-- PHP Version: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `University`
+-- Database: `autuni`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `admins` (
-`id` int(11) NOT NULL,
-  `username` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8_persian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=1 ;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'omid', '123');
 
 -- --------------------------------------------------------
 
@@ -39,12 +47,21 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 CREATE TABLE IF NOT EXISTS `courses` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `teacher` int(10) unsigned NOT NULL,
   `lesson` int(10) unsigned NOT NULL,
-  `weekday` varchar(50) COLLATE utf8_persian_ci NOT NULL,
-  `time` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  `weekday` varchar(50) NOT NULL,
+  `time` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `teacher`, `lesson`, `weekday`, `time`) VALUES
+(1, 1, 1, 'شنبه', 8),
+(2, 1, 2, 'شنبه', 10);
 
 -- --------------------------------------------------------
 
@@ -53,12 +70,21 @@ CREATE TABLE IF NOT EXISTS `courses` (
 --
 
 CREATE TABLE IF NOT EXISTS `lessons` (
-`ls_id` int(10) unsigned NOT NULL,
-  `name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
   `unit` int(10) unsigned NOT NULL,
-  `type` varchar(50) COLLATE utf8_persian_ci NOT NULL,
-  `cost` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=1 ;
+  `type` varchar(50) NOT NULL,
+  `cost` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `name`, `unit`, `type`, `cost`) VALUES
+(1, 'طراحی الگوریتم', 3, 'تخصصی', 60000),
+(2, 'زبان ماشین و اسمبلی', 3, 'تخصصی', 60000);
 
 -- --------------------------------------------------------
 
@@ -67,11 +93,20 @@ CREATE TABLE IF NOT EXISTS `lessons` (
 --
 
 CREATE TABLE IF NOT EXISTS `payments` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `student` int(10) unsigned NOT NULL,
   `cost` int(10) unsigned NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=1 ;
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `student`, `cost`, `date`) VALUES
+(1, 4, 50000, '2015-08-18'),
+(2, 4, 50000, '2015-08-19');
 
 -- --------------------------------------------------------
 
@@ -80,25 +115,24 @@ CREATE TABLE IF NOT EXISTS `payments` (
 --
 
 CREATE TABLE IF NOT EXISTS `students` (
-`st_id` int(11) NOT NULL,
-  `first_name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `last_name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `idcode` int(11) NOT NULL,
-  `telephone` int(11) NOT NULL,
-  `address` text COLLATE utf8_persian_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `major` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `sex` varchar(5) COLLATE utf8_persian_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=4 ;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `nid` bigint(10) unsigned NOT NULL,
+  `tel` bigint(10) unsigned NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `sex` varchar(5) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`st_id`, `first_name`, `last_name`, `idcode`, `telephone`, `address`, `email`, `major`, `sex`) VALUES
-(1, 'milad', 'ranaei', 91210117, 6635510, 'kfklvklfdnvfdv', 'hanhen1111@gmail.com', 'compouter', '0'),
-(2, 'mahdi', 'abasi', 9121000, 4545636, 'dklvdsklvklsdnv', 'mahdimilad@gmail.com', 'shimi', '0'),
-(3, 'shima', 'ff', 232323, 232, 'sccsc', 'cwc', 'dcsc', '2');
+INSERT INTO `students` (`id`, `name`, `nid`, `tel`, `address`, `email`, `sex`, `password`) VALUES
+(4, 'مریلا زارعی', 931445684, 9152254587, 'تهران', 'merila@gmail.com', 'زن', '123'),
+(5, 'ملیکا خورشید', 923556579, 9361142589, 'مشهد', 'melika@gmail.com', 'زن', '123');
 
 -- --------------------------------------------------------
 
@@ -107,11 +141,23 @@ INSERT INTO `students` (`st_id`, `first_name`, `last_name`, `idcode`, `telephone
 --
 
 CREATE TABLE IF NOT EXISTS `takes` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `student` int(10) unsigned NOT NULL,
   `course` int(10) unsigned NOT NULL,
-  `grade` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  `grade` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `takes`
+--
+
+INSERT INTO `takes` (`id`, `student`, `course`, `grade`) VALUES
+(1, 4, 1, NULL),
+(3, 4, 2, NULL),
+(4, 5, 1, NULL),
+(5, 5, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -120,90 +166,24 @@ CREATE TABLE IF NOT EXISTS `takes` (
 --
 
 CREATE TABLE IF NOT EXISTS `teachers` (
-`tc_id` int(10) unsigned NOT NULL,
-  `first_name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `last_name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `expertise` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `username` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8_persian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=1 ;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `expertise` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `teachers`
 --
 
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
- ADD PRIMARY KEY (`id`);
+INSERT INTO `teachers` (`id`, `name`, `expertise`, `email`, `username`, `password`) VALUES
+(1, 'مجتبی احمدی', 'نرم افزار', 'mojtabaahmadi40@gmail.com', 'mojtaba', '123'),
+(2, 'میلاد رعنایی', 'هوش مصنوعی', 'milad@gmail.com', 'milad', '123'),
+(3, 'پوریا تیموری', 'طراحی الگوریتم', 'pouria@gmail.com', 'pouria', '123');
 
---
--- Indexes for table `courses`
---
-ALTER TABLE `courses`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lessons`
---
-ALTER TABLE `lessons`
- ADD PRIMARY KEY (`ls_id`);
-
---
--- Indexes for table `payments`
---
-ALTER TABLE `payments`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
- ADD PRIMARY KEY (`st_id`);
-
---
--- Indexes for table `takes`
---
-ALTER TABLE `takes`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `student` (`student`);
-
---
--- Indexes for table `teachers`
---
-ALTER TABLE `teachers`
- ADD PRIMARY KEY (`tc_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `lessons`
---
-ALTER TABLE `lessons`
-MODIFY `ls_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `payments`
---
-ALTER TABLE `payments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `teachers`
---
-ALTER TABLE `teachers`
-MODIFY `tc_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
