@@ -25,7 +25,6 @@ $res = mysqli_query($db, $sql);
         <th>نام استاد</th>
         <th>نام درس</th>
         <th>روز های هفته</th>
-        <th>نام درس</th>
         <th>زمان</th>
     </tr>
     <?php foreach ($res as $row) { ?>
