@@ -42,12 +42,27 @@
     right: 0;
     top: 0;
 }
-#content form, p, h1 {
+#content form, #content p, #content h1 {
     vertical-align: middle;
     padding-right: 250px;
     display: table-cell;
 }
-#content input, select {
+#content table {
+    vertical-align: middle;
+    padding-right: 280px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 100%;
+}
+#content table td {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 8px;
+    border-color: #DDD;
+    height: 40px;
+}
+#content input, #content select {
     margin-right: auto;
     margin-left: auto;
     display: block;
