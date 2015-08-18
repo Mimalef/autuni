@@ -1,6 +1,5 @@
-<?php include "../com/panel.php"; ?>
+<?php include "tch_nav.php" ?>
 
-<div id="nav">
-    <img id="logo" src="../img/logo.png">
-    <a href="tch_panel.php">برنامه هفتگی</a>
+<div id="content">
+    <h1>به پنل استاد خوش آمدید.</h1>
 </div>

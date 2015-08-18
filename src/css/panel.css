@@ -33,12 +33,23 @@
 }
 #content {
     text-align: center;
-    position: absolute;
-    padding: 40px;
-    float: right;
-    right: 250px;
-    margin: 0px;
-    bottom: 0;
-    left: 0;
+    overflow: scroll;
+    position: fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    right: 0;
     top: 0;
+}
+#content form, p, h1 {
+    vertical-align: middle;
+    padding-right: 250px;
+    display: table-cell;
+}
+#content input, select {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    padding: 10px;
 }
