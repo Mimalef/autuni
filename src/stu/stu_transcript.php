@@ -2,7 +2,7 @@
 include('../com/conn.php');
 include('stu_nav.php');
 
-$stu_id = 4; //$_SESSION['stu_id'];
+$student = $_SESSION['student'];
 $count = 0;
 $sum = 0;
 
@@ -27,7 +27,7 @@ $sql = "
     ON
         courses.teacher = teachers.id
     WHERE
-        takes.student=$stu_id";
+        takes.student=$student";
 
 $res = mysqli_query($db, $sql);
 ?>
