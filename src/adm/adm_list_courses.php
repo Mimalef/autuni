@@ -1,6 +1,8 @@
-<meta charset='utf-8'>
 <?php
-include('_conn.php');
+include('adm_permission.php');
+include('../com/conn.php');
+include('adm_nav.php');
+
 $sql = "
     SELECT
         teachers.name AS teacher,
@@ -17,24 +19,25 @@ $sql = "
         lessons
     ON
         courses.lesson = lessons.id";
+
 $res = mysqli_query($db, $sql);
 ?>
 
-
-<table>
-    <tr>
-        <th>نام استاد</th>
-        <th>نام درس</th>
-        <th>روز های هفته</th>
-        <th>نام درس</th>
-        <th>زمان</th>
-    </tr>
-    <?php foreach ($res as $row) { ?>
+<div id="content">
+    <table>
         <tr>
-            <td><?php echo $row['teacher'] ?></td>
-            <td><?php echo $row['lesson'] ?></td>
-            <td><?php echo $row['weekday'] ?></td>
-            <td><?php echo $row['time'] ?></td>
+            <th>درس</th>
+            <th>استاد</th>
+            <th>روز</th>
+            <th>زمان</th>
         </tr>
-        <?php } ?>
-</table>
+        <?php foreach ($res as $row) { ?>
+            <tr>
+                <td><?php echo $row['lesson'] ?></td>
+                <td><?php echo $row['teacher'] ?></td>
+                <td><?php echo $row['weekday'] ?></td>
+                <td><?php echo $row['time'] ?></td>
+            </tr>
+            <?php } ?>
+    </table>
+</div>
