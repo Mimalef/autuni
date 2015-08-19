@@ -49,9 +49,9 @@ $res = mysqli_query($db, $sql);
             </tr>
         <?php } ?>
         <tr>
-            <form>
+            <form action="stu_course_add.php">
                 <td><input type="text" name="course" placeholder="کد کلاس"></td>
-                <td><input type="submit" name="submit" value="افزودن"></td>
+                <td><input type="submit" value="افزودن"></td>
                 <td></td>
                 <td></td>
                 <td></td>
