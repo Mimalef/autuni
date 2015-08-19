@@ -63,6 +63,7 @@
     height: 40px;
 }
 #content input, #content select {
+    text-align: center;
     margin-right: auto;
     margin-left: auto;
     display: block;
