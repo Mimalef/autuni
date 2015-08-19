@@ -1,44 +1,25 @@
 <?php
-session_start();
+include ".../com/conn.php";
 
-include('../com/conn.php');
-include('adm_nav.php');
 
 if(isset($_GET['submit']))
 {
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+    $user = $_GET['user'];
+    $pass = $_GET['pass'];
 
-    $sql = "
-        SELECT
-            id
-        FROM
-            admins
-        WHERE
-            username='$username'
-        AND
-            password='$password'";
 
-    $res = mysqli_query($db, $sql);
-    $res = mysqli_fetch_array($res);
+    $res = mysqli_query($db,"SELECT id FROM  admins WHERE  username='$user' AND password='$pass'");  
+    $row = mysqli_fetch_array($res);
 
-    if($res)
+    if($row)
     {
-        $_SESSION['admin'] = $res['id'];
-
-        header("location: adm_panel.php");
-    }
-    else
-    {
-        echo "<p class='msg error'>عملیات نا موفق بود.</p>";;
+        echo "شما با موفقیت وارد شدید";
     }
 }
 ?>
-
-<div id="content">
-    <form action="" method="GET">
-        <input type="text" name="username" placeholder="کاربری">
-        <input type="text" name="password" placeholder="گذرواژه">
-        <input type="submit" name="submit" value="ارسال">
-    </form>
-</div>
+<form>
+    <input name="user" type="text" placeholder="نام کاربری">
+    <input name="pass" type="text" placeholder="رمز عبور">
+    <input name="submit" type="submit" value="ورود">
+    
+</form>

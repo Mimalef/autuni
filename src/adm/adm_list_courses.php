@@ -1,6 +1,5 @@
-<meta charset='utf-8'>
 <?php
-include('_conn.php');
+include('../com/conn.php');
 $sql = "
     SELECT
         teachers.name AS teacher,
@@ -26,7 +25,6 @@ $res = mysqli_query($db, $sql);
         <th>نام استاد</th>
         <th>نام درس</th>
         <th>روز های هفته</th>
-        <th>نام درس</th>
         <th>زمان</th>
     </tr>
     <?php foreach ($res as $row) { ?>
@@ -35,6 +33,7 @@ $res = mysqli_query($db, $sql);
             <td><?php echo $row['lesson'] ?></td>
             <td><?php echo $row['weekday'] ?></td>
             <td><?php echo $row['time'] ?></td>
-        </tr>
+        </tr>    
         <?php } ?>
+            
 </table>

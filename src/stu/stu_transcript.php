@@ -1,9 +1,8 @@
 <?php
-include('stu_permission.php');
 include('../com/conn.php');
 include('stu_nav.php');
 
-$student = $_SESSION['student'];
+$stu_id = 4; //$_SESSION['stu_id'];
 $count = 0;
 $sum = 0;
 
@@ -28,7 +27,7 @@ $sql = "
     ON
         courses.teacher = teachers.id
     WHERE
-        takes.student=$student";
+        takes.student=$stu_id";
 
 $res = mysqli_query($db, $sql);
 ?>
