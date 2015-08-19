@@ -1,4 +1,5 @@
 <?php
+include('stu_permission.php');
 include('../com/conn.php');
 include('stu_nav.php');
 
