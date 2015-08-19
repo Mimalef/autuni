@@ -68,3 +68,23 @@
     display: block;
     padding: 10px;
 }
+#content input {
+    width: 230px;
+}
+#content select {
+    width: 250px;
+}
+.msg {
+    margin-right: 250px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    width: 400px;
+}
+.error {
+    background-color: #DD0A0A;
+}
+.success {
+    background-color: #2AC602;
+}
