@@ -1,4 +1,5 @@
 <?php
+include('adm_permission.php');
 include('../com/conn.php');
 include('adm_nav.php');
 
