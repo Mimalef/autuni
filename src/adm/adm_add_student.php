@@ -34,11 +34,11 @@ if(isset($_GET['submit']))
 
     if(mysqli_errno($db)==0)
     {
-        echo "<p>عملیات با موفقیت انجام شد.</p>";
+        echo "<p class='msg success'>عملیات با موفقیت انجام شد.</p>";
     }
     else
     {
-        echo "<p>عملیات نا موفق بود.</p>";
+        echo "<p class='msg error'>عملیات نا موفق بود.</p>";
     }
 }
 ?>
