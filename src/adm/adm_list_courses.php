@@ -1,4 +1,3 @@
-
 <meta charset='utf-8'>
 <?php
 include('_conn.php');
@@ -36,7 +35,6 @@ $res = mysqli_query($db, $sql);
             <td><?php echo $row['lesson'] ?></td>
             <td><?php echo $row['weekday'] ?></td>
             <td><?php echo $row['time'] ?></td>
-        </tr>    
+        </tr>
         <?php } ?>
-            
 </table>
