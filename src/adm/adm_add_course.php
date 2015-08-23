@@ -77,7 +77,7 @@ $lsn = mysqli_query($db, $sql);
             <option>چهار شنبه</option>
             <option>پنج شنبه</option>
         </select>
-        <input type="text" name="time" placeholder="هزینه">
+        <input type="text" name="time" placeholder="ساعت">
         <input type="submit" name="submit" value="ارسال">
     </form>
 </div>
